@@ -167,7 +167,7 @@ body {
 			background: linear-gradient(to bottom,var(--colorDark) 50%,var(--colorLight) 50%);
 			background: var(--colorDark);  //背景色
 			transition: 1s;
-			cursor: pointer;
+// 			cursor: pointer;
 			//z-index: -3;
 			animation: ani-label 1s linear forwards;  //アニメーションの設定
 			transform: rotateZ(-25deg);
