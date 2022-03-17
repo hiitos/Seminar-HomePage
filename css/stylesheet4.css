@@ -19,16 +19,15 @@ main a:hover {
   padding: 0 48px;
 }
 .contents-area h2 {
+  margin: 25px 0;
   font-size: 30px;
-}
-.contents-area .title {
-  text-align: center;
-  margin: 15px 0 45px;
+  font-weight: bold;
 }
 .contents-area h5 {
   margin: 15px 0;
+  font-size: 17px;
 }
-.contents-area a, .contents-area p, .contents-area li {
+.contents-area p, .contents-area li {
   margin: 15px 0 15px 15px;
   font-size: 16px;
 }
@@ -42,18 +41,15 @@ main a:hover {
 .contents-area .required-level h2 {
   margin: 25px 0;
 }
-.contents-area .es h2 {
-  margin: 25px 0;
+.contents-area .required-level a {
+  margin: 15px 0 15px 15px;
 }
-.contents-area .exam h2 {
-  margin: 25px 0;
-}
-.contents-area .information-session h2 {
-  margin: 25px 0;
+.contents-area .information-session li {
+  text-decoration: line-through;
 }
 
 .read-more-button {
-  width: 130px;
+  width: 80px;
   height: 19px;
   margin: 20px auto;
   /*text-align: center;*/
@@ -76,4 +72,5 @@ main a:hover {
 .read-more-button:hover a {
   text-decoration: none;
   color: var(--colorDark);
-}/*# sourceMappingURL=stylesheet4.css.map */
+}
+/*# sourceMappingURL=stylesheet4.css.map */

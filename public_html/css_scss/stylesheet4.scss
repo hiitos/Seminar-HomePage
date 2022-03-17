@@ -18,25 +18,23 @@ main{
 	/*border: 1px solid green;*/
 	padding: 0 48px;
 
-    h2 {
+    h2 {   // 各カテゴリのheading
+        margin: 25px 0;
         font-size: 30px;
+        font-weight: bold;
     }
 
-    .title {
-        text-align: center;
-        margin: 15px 0 45px;
-    }
-
-    h5 {
+    h5 {    // < ~~ > の部分
         margin: 15px 0;
+        font-size: 17px;
     }
 
-    a,p,li {
+    p,li {
         margin: 15px 0 15px 15px;
         font-size: 16px;
     }
 
-    hr {
+    hr {     // 区切りの部分
         width: 80%;
         margin: 50px auto;
         height: 3px;
@@ -48,29 +46,21 @@ main{
         h2 {
             margin: 25px 0;
         }
-    }
-
-    .es {
-        h2 {
-            margin: 25px 0;
+        a{
+            margin: 15px 0 15px 15px;
         }
     }
 
-    .exam {
-        h2 {
-            margin: 25px 0;
-        }
-    }
     .information-session {
-        h2 {
-            margin: 25px 0;
+        li{
+            text-decoration: line-through;
         }
     }
 }
 
 
 .read-more-button {
-	width: 130px;
+	width: 80px;
 	height: 19px;
 	margin: 20px auto;
 	/*text-align: center;*/
@@ -98,14 +88,5 @@ main{
 }	
 
 @media screen and (max-width:480px) {
-	// header,main,footer {
-	// 	width: 100%;
-	// 	margin: 0 auto;
-	// }
-    // /*
-	// .header-top {
-	// 	/スマホ版になったりしたらメニューを折りたたんでボタンで表示にする 
-	// }
-    // */
-
+    // 必要であれば実装
 }

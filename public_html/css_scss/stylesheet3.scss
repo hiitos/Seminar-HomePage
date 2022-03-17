@@ -1,0 +1,85 @@
+/* main */
+main{
+	padding: 24px 0;
+	/*border: 1px solid green;*/
+
+	a {
+        text-decoration: noen;
+        color: #387eb8;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
+
+.contents-area {
+    width: 70%;
+	margin: 30px auto 30px;
+	padding: 0 48px;
+
+    .title {
+        font-size: 30px;
+        text-align: center;
+        margin: 15px 0 45px;
+    }
+
+    li {
+        font-size: 16px;
+        list-style: disc;
+        margin: 8px 8px 8px 45px;
+    }
+
+    .sub-title{
+        margin: 0 0 0 13px ;
+    }
+
+    .reference-mark{
+        text-align: center;
+        margin: 25px 0;
+
+    }
+
+    .profile-head {
+        .top-profile {
+            h2 {
+                font-size: 40px;
+                margin: 25px 25px 0px;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .site-page{
+                margin: 15px 0px 40px;
+                font-size: 16px;
+                text-align: center;
+            }
+
+            h3 {
+                font-size: 22px;
+                margin: 50px 0 15px;
+                font-weight: bold;
+            }
+            
+            p {
+				margin: 15px;
+                font-size: 16px;
+            }   
+        }
+    }
+	.profile-detail {
+        margin-top: 50px;
+		h3 {
+			font-size: 22px;
+			margin: 50px 0 15px;
+            font-weight: bold;
+		}
+
+    }
+}
+
+@media screen and (max-width:760px) {
+	header,main,footer {
+		width: 100%;
+		margin: 0 auto;
+	} 
+}
