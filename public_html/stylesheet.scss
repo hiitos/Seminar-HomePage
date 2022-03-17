@@ -1,0 +1,575 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*ここから実装*/
+:root {
+  --colorDark: black;   /*トップ画面の色変化設定*/
+  --colorLight: red;
+  --colorMiddle: black;
+  --navfontSize:clamp(15px,2vw,40px);
+  --heading2fontSize:clamp(18px,4.5vw,30px);
+  --contactText:clamp(12px,2.5vw,20px);
+  --scaleSize:clamp(107vw,100vw,1.4);
+}
+
+body {
+	font-family: 'Space Mono', monospace;
+}
+
+/*----------スプラッシュの実装(svg)----------*/
+.wrapper {
+	display: none;    /*スプラッシュの間はページを見せない*/
+}
+
+.sp-one {     
+	display: flex;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: fixed;  
+	background-color: rgb(20, 20, 20);
+	overflow: hidden;
+
+	.wrapperOn {    /*svgの親要素*/
+		width: 90%;   /*テキストの横幅*/
+		margin: auto auto;
+		transition: 0.3s;
+	}
+}
+
+#top-svg {    /*svgのid*/    
+	#top-path {     /*svgのパス*/
+		fill: #fff;
+		stroke: #ffffff;
+		stroke-dasharray: 1800;
+		opacity: 1;
+		animation: animate 3s cubic-bezier(0, 0.23, 1, 0.1);
+		transition: 0.3s;
+	}
+}
+
+@keyframes animate {    /*アニメーションの設定*/
+  	0% {
+		opacity: 0;
+		fill: none;
+		stroke-dasharray: 1800;
+	}
+	40% {
+		opacity: 0.07;
+		fill: none;
+		stroke-dasharray: 1800;
+	}
+	60% {
+		fill: rgba(255, 255, 255, 0);
+	}
+	90% {
+		opacity: 1;
+		fill: rgba(255, 255, 255, 1);
+		stroke-dashoffset: 0;
+	}
+	100% {
+		fill: rgba(255, 255, 255, 0);
+	}
+}
+
+/*----------header----------*/
+.header-top {  /*ナビの親要素*/
+	z-index: 20;
+	position: absolute;
+	width: 100vw;
+	//height: 10vh;
+	height: min(15vw,10vh);
+	background-color: var(--colorDark);
+	/*中央揃い*/
+	display: flex;
+	justify-content: center;
+	position: fixed;
+
+	.menu-container{
+		#menu-area{
+			#menu-ul{
+				margin-top: 1.5vh;    //******************
+				.current-page {
+					border: 1px solid rgb(196, 199, 196);
+				}
+
+				li {
+					display: flex;
+					justify-content: center;
+  					align-items: center;
+					margin: 1vh 1.5vw;    //******************
+					float: left;
+
+					a {
+						color: #f1ecf5;
+						font-size: var(--navfontSize);    //******************
+						padding: 10px;    //******************
+					}
+
+					.other-page:hover {
+						color: #6b94b6;
+						
+					}
+				}
+				overflow: hidden;
+			}
+		}
+
+		#media-menu-area{
+			display: none;
+		}
+	}
+}
+
+/* ---------- トップイメージのアニメーション ---------- */
+// ********************トップイメージの親要素********************
+.top-image-place {
+	padding-top: 10vh;
+	/*トップの背景が二色になるように設定*/
+	background: linear-gradient(to bottom, var(--colorLight) 50%, var(--colorDark) 50%);
+	/*background-attachment: fixed;*/
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+	perspective:50vw;
+	color:var(--colorDark);
+	//z-index: -1;   //背面設定
+	/*background-attachment: fixed;*/
+
+	//widthを基準に円を描くイメージなので、
+
+	.top-area{
+		//border: dashed blue;
+		max-width: 500px;
+		max-height: 500px;
+		width: 60vw ;
+		height: 60vw;
+		position: absolute;
+		display: flex;
+		justify-content: center;
+  		align-items: center;
+
+		#opening {    //check-box
+			visibility: hidden;
+			position: absolute;
+		}
+
+		#image-label {
+			//border: dashed red;
+			width: 100% ;
+			height: 100%;
+			border-radius: 50%;   //円型に丸める
+			position: absolute;    //absoluteではなくrelativeにしないと親要素の70%にはならない
+			transform-origin: center center;
+			//まる
+			background: linear-gradient(to bottom,var(--colorDark) 50%,var(--colorLight) 50%);
+			background: var(--colorDark);  //背景色
+			transition: 1s;
+			cursor: pointer;
+			//z-index: -3;
+			animation: ani-label 1s linear forwards;  //アニメーションの設定
+			transform: rotateZ(-25deg);
+		}
+	}
+}
+
+@keyframes ani-label {   //円型が落ちた後に色分割をするアニメーション
+	0% {
+		margin-top: calc(-100vh + 50px);
+		background: var(--colorDark);
+	}
+	90% {
+		background: var(--colorDark);
+	}
+	100% {
+		background: linear-gradient(to bottom,var(--colorDark) 50%,var(--colorLight) 50%);
+  	}
+}
+
+#image-label:after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border-radius: 50%;
+	animation: pulse 3s linear 1s infinite;  //定義名 変化時間　進行具合 ループ 交互に反対再生させるかどうか
+	//ここだと後に来るpulseのアニメーションを開始１秒で３秒間、開始から終了まで一定に変化実行するのをループさせるというもの
+	background: inherit;  //親要素の色を使用する
+	//z-index: -1;
+}
+
+@keyframes pulse {    //円型の外枠で透明の拡大をするアニメーション
+	80% {
+		transform: scale(1.2);   //scale(1.4)
+		opacity: 0;
+	}
+  
+	100% {
+		transform: scale(1.2);
+		opacity: 0;
+	}
+}
+
+#header-text {
+	/*border: 1px solid green;*/
+	z-index: 2;
+	text-align: center;
+	transform: rotateZ(-25deg);
+	visibility: hidden;
+	//定義名 変化時間　進行具合 ループ 交互に反対再生させるかどうか
+	animation: visi-header-text 1s linear 1s forwards;
+	h1 {
+		color: rgb(255, 255, 255);
+		font-size: var(--heading2fontSize);
+		font-weight: 900;
+		margin: 5px;
+	}
+}
+
+@keyframes visi-header-text {
+	100% {
+		visibility: visible;;
+	}
+}
+
+#spacer {  //スペースを入れる
+	height: 30px;
+}
+
+#contact {
+	//color: var(--colorLight);
+	pointer-events: auto;
+	user-select: none;
+	text-align: right;
+	a {
+		/*   font-weight:900; */
+		color: rgb(29, 28, 28);/*inherit*/
+		font-size: var(--contactText);
+		text-decoration: none;
+		/*text-shadow:0 5px 5px inherit;*/
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+}
+
+//checkedがチェックされた時の処理
+#opening:checked + #image-label {
+	//border: dashed red;
+	width: 50%;
+	height: 50%;
+	transform: rotateZ(515deg);
+}
+
+#opening:checked ~ #header-text {
+	visibility: hidden;
+	animation: header-text 1s linear 1s forwards;
+}
+
+@keyframes header-text {
+	100% {
+		opacity: 1;
+	}
+}
+
+/* ---------- main ---------- */
+main{
+	padding: 24px 0;
+	/*border: 1px solid green;*/
+	background: var(--colorDark);
+}
+
+/* カラム１ */
+.layout-grid-column-one {
+	width: 80vw;
+	margin: 30px auto 30px;
+	/*border: 1px solid green;*/
+	//padding: 0 48px;
+
+	h2 {
+		margin: 15px 0;
+		font-size: 30px;
+		text-align: center;
+		font-weight: bold;
+		color:white;
+	}
+
+	.column-area-one {
+		/*width: 90%;   marginpadding分減らす*/
+		margin: 0 auto;
+		/*border: 1px solid green;*/
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		.column-one {
+			/*border: 1px solid green;*/
+			color: #555555;
+			width: 25%;
+			height: 425px;
+			min-width: 210px;
+			margin: 10px;
+			padding: 0 13px;
+			background-color: CORNSILK;
+			float: left;
+			text-align: center;
+
+			figure {
+				margin: 60px 30px 30px 30px;
+			}
+
+			h3 {
+				font-size: 20px;
+				font-weight: bold;
+				margin: 30px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+		}
+		overflow: hidden;
+	}
+}
+
+
+.layout-grid-column-two {
+	/*border: 1px solid green;*/
+	width: 80vw;
+	margin: 30px auto 30px;
+	//padding: 0 48px;
+	
+	h2 {
+		margin: 15px 0;
+		font-size: 30px;
+		text-align: center;
+		font-weight: bold;
+		color:white;
+	}
+
+	.column-area-two {
+		/*width: 90%;   marginpadding分減らす*/
+		margin: 0 auto;
+		/*border: 1px solid green;*/
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		.column-two {
+			/*border: 1px solid green;*/
+			color: #555555;
+			width: 18%;
+			height: 407px;
+			min-width: 210px;
+			margin: 10px;
+			padding: 8px 21px;
+			background-color: beige;
+			float: left;
+			text-align: center;
+			
+			
+			.culumn-number {
+				margin: 60px;
+				font-size: 60px;
+				color: #abb8c3;
+			}
+
+			hr {
+				height: 0.5px;
+				background-color: #545d3b;
+				border: none;
+			}
+
+			h3 {
+				margin: 30px;
+				font-size: 20px;
+				font-weight: bold;
+			}
+
+			p {
+				font-size: 16px;
+			}
+
+		}
+		overflow: hidden;
+	}
+}
+
+.read-more-button {
+	width: 130px;
+	height: 19px;
+	margin: 20px auto;
+	/*text-align: center;*/
+	border: 1px solid #f0ebeb;
+	border-radius: 9999px;
+	padding: 14px 21px;
+	text-align: center;
+
+	a {
+		text-decoration: none;
+		color: #f0ebeb;
+		font-size: 16px;		
+	}
+}
+
+.read-more-button:hover {
+	background-color: #e9e5e5;
+	a {
+		color: #2e2d2d;
+	}
+}	
+
+/* ---------- footer ---------- */
+footer {
+	height: 248px;
+	padding: 64px 0 32px;
+	background-color:#EEEEEE;
+
+	.access-area {
+		padding: 0 10vw ;
+	}
+
+}
+
+.snsAccessPlace {
+	h2 {
+		/*border: 1px solid green;*/
+		margin-bottom: 16px;
+		font-size: 18px;
+	}
+
+	li {
+		/*border: 1px solid green;*/
+		margin: 8px 10px 20px;
+		float: left;
+		a {
+			
+			#Insta-Logo{
+				width: 50px;
+				height: 50px;
+				margin-top: 15px;
+				fill: #6b94b6;
+			}
+			#Insta-Logo:hover{
+				fill: #333333;
+			}
+
+			#Twitter-Logo{
+				width: 80px;
+				height: 80px;
+				
+				.cls-1{
+					fill: none;
+
+				}
+				.twitter-path{
+					fill: #6b94b6;
+				}
+				.twitter-path:hover{
+					fill: #333333;
+				}
+			}
+
+		}
+	}
+	overflow: hidden;
+}
+
+.mailAccessPlace { /*メールアドレス欄*/
+	/*border: 1px solid green;*/
+	h2 {
+		margin: 10px 0;
+		/*border: 1px solid green;*/
+		font-size: 18px;
+		color: #555555;
+	}
+	a {
+		text-decoration: none;
+		color: #6b94b6;
+	}
+	a:hover {
+		color: #333333;
+	}
+}
+
+/* ----------スマホ画面・ipadの画面設定---------- */
+
+@media screen and (max-width:760px) {
+	header,main,footer {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	#image-label {
+		perspective:50vw;
+		transform: rotateZ(0deg);
+	}
+
+	.header-top {  /*ナビの親要素*/
+		.menu-container{
+			#menu-area{
+				display: none;
+			}
+			
+			#media-menu-area{
+				display: block;
+				padding-top: min(2.5vh,3vw);
+				text-align: center;
+
+				label {
+    				cursor :pointer;
+				}
+
+				input {
+					visibility: hidden;
+					position: absolute;
+				}
+
+				#menu-icon{
+					height: min(5vh,10vw);
+					width: min(5vh,10vw);
+					fill: #EEEEEE;
+				}
+
+				#media-menu-ul{
+					margin-top: min(1.1vh, 1.5vw);
+					li {
+						width: 100vw;
+						height: 0;
+						opacity: 0;
+    					overflow: hidden;
+    					transition: 0.5s;
+						visibility: hidden;
+						a{
+							color: #ffffff;
+							font-size: var(--heading2fontSize);
+						}
+					}
+				}
+
+				#menu-bar:checked ~ #media-menu-ul li {
+					width: 100vw;
+					background-color: var(--colorMiddle) !important;
+					height: 5vh;
+					padding-top: 2vh;
+					opacity: 1;
+					visibility: visible;
+					transition: 0.5s;
+					text-align: center;
+
+					a{
+						color: #ffffff;
+						font-size: var(--heading2fontSize);
+					}
+				}
+			}
+		}
+	}
+	
+
+	//topimageのフォントのサイズ変更
+}

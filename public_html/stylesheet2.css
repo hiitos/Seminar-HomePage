@@ -1,0 +1,65 @@
+/* main */
+main {
+  padding: 24px 0;
+  /*border: 1px solid green;*/
+}
+main a {
+  -webkit-text-decoration: noen;
+          text-decoration: noen;
+  color: #387eb8;
+}
+main a:hover {
+  text-decoration: underline;
+}
+
+.contents {
+  width: 70%;
+  margin: 30px auto 30px;
+  /*border: 1px solid green;*/
+  padding: 0 48px;
+}
+.contents h2 {
+  font-size: 30px;
+  margin: 30px 0;
+  font-weight: bold;
+}
+.contents h3 {
+  font-size: 22px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+.contents p {
+  font-size: 16px;
+}
+.contents hr {
+  width: 80%;
+  margin: 30px auto;
+  height: 3px;
+  background: linear-gradient(to right, white, gray);
+  border: none;
+}
+.contents .about p {
+  margin: 25px 0;
+}
+.contents .activity h3 {
+  margin: 30px 0;
+}
+.contents .activity h4 {
+  margin: 10px 0;
+}
+.contents .activity p {
+  padding-left: 15px;
+}
+.contents .activity .page-navigation {
+  text-align: right;
+  margin: 20px 0;
+}
+.contents .weekly-routine table,
+.contents .weekly-routine th,
+.contents .weekly-routine td {
+  border: 1px solid;
+}
+.contents .weekly-routine table {
+  width: 90%;
+  margin-left: 30px;
+}/*# sourceMappingURL=stylesheet2.css.map */

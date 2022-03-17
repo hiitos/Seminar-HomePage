@@ -1,0 +1,66 @@
+/* main */
+main {
+  padding: 24px 0;
+  /*border: 1px solid green;*/
+}
+main a {
+  -webkit-text-decoration: noen;
+          text-decoration: noen;
+  color: #387eb8;
+}
+main a:hover {
+  text-decoration: underline;
+}
+
+.contents-area {
+  width: 70%;
+  margin: 30px auto 30px;
+  /*border: 1px solid green;*/
+  padding: 0 48px;
+}
+.contents-area .title {
+  font-size: 30px;
+  text-align: center;
+  margin: 15px 0 45px;
+}
+.contents-area li {
+  font-size: 16px;
+  list-style: disc;
+  margin: 8px 8px 8px 45px;
+}
+.contents-area .sub-title {
+  margin: 0 0 0 13px;
+}
+.contents-area .reference-mark {
+  text-align: center;
+  margin: 25px 0;
+}
+.contents-area .profile-head {
+  /*border: 1px solid green;*/
+}
+.contents-area .profile-head .top-profile h2 {
+  font-size: 30px;
+  margin: 25px;
+}
+.contents-area .profile-head .top-profile a {
+  font-size: 16px;
+  /*border: 1px solid green;*/
+  text-decoration: none;
+  margin: 10px;
+}
+.contents-area .profile-head .top-profile p {
+  margin: 15px;
+  font-size: 16px;
+  /*border: 1px solid green;*/
+}
+.contents-area .profile-detail h3 {
+  font-size: 22px;
+  margin: 30px 0 15px;
+}
+
+@media screen and (max-width: 760px) {
+  header, main, footer {
+    width: 100%;
+    margin: 0 auto;
+  }
+}/*# sourceMappingURL=stylesheet3.css.map */
