@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* main */
+main {
+  padding: 24px 0;
+  /*border: 1px solid green;*/
+}
+main a {
+  -webkit-text-decoration: noen;
+          text-decoration: noen;
+  color: #387eb8;
+}
+main a:hover {
+  text-decoration: underline;
+}
+
+.contents-area {
+  width: 65%;
+  margin: 30px auto 30px;
+  /*border: 1px solid green;*/
+  padding: 0 48px;
+}
+.contents-area .title {
+  margin-bottom: 100px;
+}
+.contents-area h2 {
+  font-size: 30px;
+  text-align: center;
+  margin: 15px 0 45px;
+}
+.contents-area p {
+  margin: 45px 0 45px 15px;
+  font-size: 16px;
+}
+.contents-area .area-division {
+  width: 80%;
+  margin: 50px auto;
+  height: 3px;
+  background: linear-gradient(to right, white, gray);
+  border: none;
+}
+.contents-area #graduation-thesis .place-one {
+  margin-top: 20px;
+  text-align: center;
+}
+.contents-area table {
+  border-collapse: separate;
+  border-spacing: 5px;
+  width: 100%;
+}
+.contents-area table th {
+  border-radius: 5px;
+  text-align: center;
+}
+.contents-area .table-head {
+  background-color: var(--colorDark);
+  color: white;
+}
+.contents-area table th {
+  background-color: #f1eadf;
+  border: solid 1px #af9d85;
+  color: black;
+}
+.contents-area .student-table th {
+  padding: 10px 5vw;
+}
+.contents-area .text-table th {
+  padding: 10px 3vw;
+}
+.contents-area .text-table a {
+  text-decoration: none;
+  color: #387eb8;
+}
+.contents-area .text-table a:hover {
+  text-decoration: underline;
+}
+
+.read-more-button {
+  width: 130px;
+  height: 19px;
+  margin: 20px auto;
+  /*text-align: center;*/
+  border: 1px solid var(--colorDark);
+  background-color: var(--colorDark);
+  border-radius: 9999px;
+  padding: 14px 21px;
+  text-align: center;
+}
+.read-more-button a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.read-more-button:hover {
+  border: 1px solid var(--colorDark);
+  background-color: #e9e5e5;
+}
+.read-more-button:hover a {
+  text-decoration: none;
+  color: var(--colorDark);
+}
+
+@media screen and (max-width: 480px) {
+  /*
+  .header-top {
+  	 スマホ版になったりしたらメニューを折りたたんでボタンで表示にする 
+  }
+  */
+}
+/*# sourceMappingURL=stylesheet5.css.map */
